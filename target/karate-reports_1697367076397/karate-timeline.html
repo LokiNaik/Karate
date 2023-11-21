@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"examples\/users\/FirstFeature[1:3]","start":1697367032022,"end":1697367034704,"title":"examples\/users\/FirstFeature[1:3] 16:20:32.022-16:20:34.704 Get user details","className":"failed"},{"id":2,"group":1,"content":"examples\/users\/FirstFeature[2:24]","start":1697367034740,"end":1697367034896,"title":"examples\/users\/FirstFeature[2:24] 16:20:34.740-16:20:34.896 Get user details - User not found"},{"id":3,"group":1,"content":"examples\/users\/GetWIthQuery[1:2]","start":1697367036212,"end":1697367036451,"title":"examples\/users\/GetWIthQuery[1:2] 16:20:36.212-16:20:36.451 get all active users"},{"id":4,"group":1,"content":"examples\/users\/GetWIthQuery[2:11]","start":1697367036476,"end":1697367036693,"title":"examples\/users\/GetWIthQuery[2:11] 16:20:36.476-16:20:36.693 get all active users"},{"id":5,"group":1,"content":"examples\/users\/GetWIthQuery[3:23]","start":1697367036710,"end":1697367036783,"title":"examples\/users\/GetWIthQuery[3:23] 16:20:36.710-16:20:36.783 Get all products"},{"id":6,"group":1,"content":"examples\/users\/Header[1:3]","start":1697367036915,"end":1697367037065,"title":"examples\/users\/Header[1:3] 16:20:36.915-16:20:37.065 pass the user request with headers","className":"failed"},{"id":7,"group":1,"content":"examples\/users\/Header[2:16]","start":1697367037108,"end":1697367037114,"title":"examples\/users\/Header[2:16] 16:20:37.108-16:20:37.114 Pass the user request with header_part2"},{"id":8,"group":1,"content":"examples\/users\/users[1:7]","start":1697367037239,"end":1697367037462,"title":"examples\/users\/users[1:7] 16:20:37.239-16:20:37.462 get all users and then get the first user by id"},{"id":9,"group":1,"content":"examples\/users\/users[2:18]","start":1697367037471,"end":1697367038301,"title":"examples\/users\/users[2:18] 16:20:37.471-16:20:38.301 create a user and then get it by id"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

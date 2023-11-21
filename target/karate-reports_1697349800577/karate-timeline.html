@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"examples\/users\/FirstFeature[1:3]","start":1697349775605,"end":1697349778122,"title":"examples\/users\/FirstFeature[1:3] 11:32:55.605-11:32:58.122 Get user details"},{"id":2,"group":1,"content":"examples\/users\/FirstFeature[2:24]","start":1697349778136,"end":1697349778264,"title":"examples\/users\/FirstFeature[2:24] 11:32:58.136-11:32:58.264 Get user details - User not found"},{"id":3,"group":1,"content":"examples\/users\/GetWIthQuery[1:2]","start":1697349778961,"end":1697349779144,"title":"examples\/users\/GetWIthQuery[1:2] 11:32:58.961-11:32:59.144 get all active users"},{"id":4,"group":1,"content":"examples\/users\/users[1:7]","start":1697349779297,"end":1697349779505,"title":"examples\/users\/users[1:7] 11:32:59.297-11:32:59.505 get all users and then get the first user by id"},{"id":5,"group":1,"content":"examples\/users\/users[2:18]","start":1697349779525,"end":1697349780420,"title":"examples\/users\/users[2:18] 11:32:59.525-11:33:00.420 create a user and then get it by id"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
